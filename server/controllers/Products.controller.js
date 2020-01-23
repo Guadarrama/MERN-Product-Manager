@@ -12,6 +12,12 @@ class ProductsController {
             .then(() => res.json({msg: "product created"}))
             .catch(err => res.json(err));
     }
+    getOne(req, res){
+        console.log(req.url)
+        Product.findOne({_id: req.params._id})
+            .then(product => res.json(product))
+            .catch(err => res.json(err));
+    }
 }
 
 module.exports = new ProductsController();
